@@ -1,14 +1,15 @@
+import os
 import scipy.io
 import matplotlib.pyplot as plt
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, 'data')
 
-healthy_data = scipy.io.loadmat('data/97.mat')
-faulty_data = scipy.io.loadmat('data/105.mat')
-
+healthy_data = scipy.io.loadmat(os.path.join(DATA_DIR, '97.mat'))
+faulty_data = scipy.io.loadmat(os.path.join(DATA_DIR, '105.mat'))
 
 healthy_signal = healthy_data['X097_DE_time'][:1000]
 faulty_signal = faulty_data['X105_DE_time'][:1000]
-
 
 plt.figure(figsize=(12, 6))
 
